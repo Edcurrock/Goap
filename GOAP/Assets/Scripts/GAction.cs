@@ -24,7 +24,6 @@ public abstract class GAction : MonoBehaviour
     {
         preconditions = new Dictionary<string,int>();
         effects = new Dictionary<string, int>();
-
     }
 
     private void Awake() 

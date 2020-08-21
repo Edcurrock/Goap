@@ -100,7 +100,7 @@ public class GPlanner
                 else
                 {
                     List<GAction> subset = ActionSubset(usableActions,act);
-                    bool found  = BuildGraph(node, leaves, subset, goal);
+                    bool found = BuildGraph(node, leaves, subset, goal);
                     if(found)
                     {
                         foundPath = true;
