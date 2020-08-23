@@ -3904,6 +3904,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999376859}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2028460725 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2084326960257471647, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
+  m_PrefabInstance: {fileID: 2084326960485048020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2028460726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028460725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db84d7361bc8a9347b49f4f1f89e0e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Go To Cubicle
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: patientPicked
+    value: 0
+  afterEffects:
+  - key: treatPatient
+    value: 0
+  agent: {fileID: 0}
+  running: 0
 --- !u!1 &2071005932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4199,9 +4229,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2084326960257471640, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
+      propertyPath: preConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084326960257471640, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1000317771}
+    - target: {fileID: 2084326960257471640, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
+      propertyPath: preConditions.Array.data[1].key
+      value: Waiting
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084326960257471640, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
+      propertyPath: preConditions.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084326960257471640, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
+      propertyPath: preConditions.Array.data[0].key
+      value: FreeCubicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084326960257471640, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
+      propertyPath: afterEffects.Array.data[0].key
+      value: patientPicked
+      objectReference: {fileID: 0}
     - target: {fileID: 2084326960257471643, guid: 9aaca2210b6e55840af9700541d600a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.170559

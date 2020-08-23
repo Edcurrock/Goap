@@ -24,7 +24,8 @@ public class GAgent : MonoBehaviour {
     public List<GAction> actions = new List<GAction>();
     // Dictionary of subgoals
     public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
-  
+    
+    public GInventory inventory  = new GInventory();
     public WorldStates beliefs = new WorldStates();
 
     // Access the planner

@@ -27,6 +27,8 @@ public abstract class GAction : MonoBehaviour {
     // State of the agent
     public WorldStates agentBeliefs;
     // Access our inventory
+    public GInventory inventory;
+
     public WorldStates beliefs;
     // Are we currently performing an action?
     public bool running = false;
@@ -66,9 +68,9 @@ public abstract class GAction : MonoBehaviour {
             }
         }
         // Populate our inventory
-        // inventory = this.GetComponent<GAgent>().inventory;
+        inventory = GetComponent<GAgent>().inventory;
         // Get our agents beliefs
-        // beliefs = this.GetComponent<GAgent>().beliefs;
+        beliefs = this.GetComponent<GAgent>().beliefs;
     }
 
     public bool IsAchievable() {
