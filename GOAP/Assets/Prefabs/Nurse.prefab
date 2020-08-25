@@ -177,7 +177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2084326959353830691
 Transform:
   m_ObjectHideFlags: 0
@@ -1341,6 +1341,8 @@ GameObject:
   - component: {fileID: 2084326960257471640}
   - component: {fileID: 2084326960257471641}
   - component: {fileID: 2084326960257471620}
+  - component: {fileID: 724605329}
+  - component: {fileID: 2121968124}
   m_Layer: 0
   m_Name: Nurse
   m_TagString: Untagged
@@ -1373,7 +1375,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1403,10 +1405,12 @@ MonoBehaviour:
   targetTag: 
   duration: 0
   preConditions:
+  - key: FreeCubicle
+    value: 1
   - key: Waiting
     value: 1
   afterEffects:
-  - key: treatPatient
+  - key: patientPicked
     value: 1
   agent: {fileID: 0}
   running: 0
@@ -1437,6 +1441,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAgent: {fileID: 2084326960257471641}
+--- !u!114 &724605329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084326960257471647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db84d7361bc8a9347b49f4f1f89e0e81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Go To Cubicle
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: patientPicked
+    value: 0
+  afterEffects:
+  - key: treatPatient
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &2121968124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084326960257471647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3d49ca0d275a24c86b003298664e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: Lounge
+  duration: 5
+  preConditions:
+  - key: Treated
+    value: 1
+  afterEffects:
+  - key: relaxing
+    value: 0
+  agent: {fileID: 0}
+  running: 0
 --- !u!1 &2084326960316266832
 GameObject:
   m_ObjectHideFlags: 0
