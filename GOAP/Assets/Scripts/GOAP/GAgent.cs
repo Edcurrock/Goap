@@ -66,7 +66,9 @@ public class GAgent : MonoBehaviour {
             float distanceToTarget = Vector3.Distance(currentAction.target.transform.position, this.transform.position);
             // Check the agent has a goal and has reached that goal
             if (currentAction.agent.hasPath && distanceToTarget < 2.0f) { // currentAction.agent.remainingDistance < 1.0f) 
-
+                ///
+                currentAction.agent.isStopped = true;
+                ///
                 if (!invoked) {
 
                     //if the action movement is complete wait
@@ -132,6 +134,7 @@ public class GAgent : MonoBehaviour {
 
                     // Activate the current action
                     currentAction.running = true;
+                    currentAction.agent.isStopped = false;
                     // Pass Unities AI the destination for the agent
                     currentAction.agent.SetDestination(currentAction.target.transform.position);
                 }

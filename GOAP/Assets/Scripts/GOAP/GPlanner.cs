@@ -61,7 +61,7 @@ public class GPlanner {
         //create the first node in the graph
         List<Node> leaves = new List<Node>();
         Node start = new Node(null, 0.0f, GWorld.Instance.GetWorld().GetStates(), beliefStates.GetStates(), null);
-
+   
         //pass the first node through to start branching out the graph of plans from
         bool success = BuildGraph(start, leaves, usableActions, goal);
 
@@ -74,6 +74,7 @@ public class GPlanner {
 
         //of all the plans found, find the one that's cheapest to execute
         //and use that
+
         Node cheapest = null;
         foreach (Node leaf in leaves) {
 

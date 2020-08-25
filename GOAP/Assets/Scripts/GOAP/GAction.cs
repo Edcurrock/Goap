@@ -82,10 +82,10 @@ public abstract class GAction : MonoBehaviour {
     //world and trying to match with the actions preconditions
     public bool IsAhievableGiven(Dictionary<string, int> conditions) {
 
-        foreach (KeyValuePair<string, int> p in preconditions) {
-
-            if (!conditions.ContainsKey(p.Key)) {
-
+        foreach (KeyValuePair<string, int> p in preconditions) 
+        {
+            if (!conditions.ContainsKey(p.Key)) 
+            {
                 return false;
             }
         }

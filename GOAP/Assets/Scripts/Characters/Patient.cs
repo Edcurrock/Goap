@@ -10,6 +10,9 @@
 
         SubGoal s2 = new SubGoal("isTreated", 1, true);
         goals.Add(s2, 5);
+
+        SubGoal s3 = new SubGoal("isFinished", 1, true);
+        goals.Add(s3, 7);
     }
 
 }

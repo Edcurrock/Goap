@@ -172,7 +172,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 146998739878075230}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -1171,9 +1171,13 @@ GameObject:
   - component: {fileID: 7906277169126897634}
   - component: {fileID: 4730027950611746568}
   - component: {fileID: 921698022281207738}
+  - component: {fileID: -4364448909975180229}
+  - component: {fileID: -4017824057307106781}
+  - component: {fileID: 4995800397675785689}
+  - component: {fileID: 1583259285233001956}
   m_Layer: 0
   m_Name: Patient
-  m_TagString: Untagged
+  m_TagString: Patient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1279,7 +1283,7 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: Reception
-  duration: 2
+  duration: 3
   preConditions:
   - key: hasArrived
     value: 1
@@ -1331,7 +1335,7 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: 
-  duration: 0
+  duration: 5
   preConditions:
   - key: atHospital
     value: 0
@@ -1340,6 +1344,74 @@ MonoBehaviour:
     value: 0
   agent: {fileID: 0}
   running: 0
+--- !u!114 &-4364448909975180229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881660985461994433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf7d9b0b21e2564d93698d9d944c212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Go To Home
+  cost: 1
+  target: {fileID: 0}
+  targetTag: Home
+  duration: 0
+  preConditions:
+  - key: isCured
+    value: 1
+  afterEffects:
+  - key: isFinished
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!54 &-4017824057307106781
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881660985461994433}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &4995800397675785689
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881660985461994433}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1583259285233001956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881660985461994433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f4d1ffef907224b9ac13fc858eae2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAgent: {fileID: 0}
 --- !u!1 &2910937947740355020
 GameObject:
   m_ObjectHideFlags: 0

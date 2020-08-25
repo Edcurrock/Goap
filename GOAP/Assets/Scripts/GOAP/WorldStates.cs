@@ -9,12 +9,12 @@ public class WorldState {
     public int value;
 }
 
-public class WorldStates {
-
-    // Constructor
+public class WorldStates 
+{
     public Dictionary<string, int> states;
 
-    public WorldStates() {
+    public WorldStates() 
+    {
 
         states = new Dictionary<string, int>();
     }
@@ -40,13 +40,14 @@ public class WorldStates {
             // Add the value to the state
             states[key] += value;
             // If it's less than zero then remove it
-            if (states[key] <= 0) {
-
+            if (states[key] <= 0) 
+            {
                 // Call the RemoveState method
                 RemoveState(key);
             }
-        } else {
-
+        } 
+        else 
+        {
             AddState(key, value);
         }
     }
@@ -74,8 +75,8 @@ public class WorldStates {
         }
     }
 
-    public Dictionary<string, int> GetStates() {
-
+    public Dictionary<string, int> GetStates() 
+    {
         return states;
     }
 }
