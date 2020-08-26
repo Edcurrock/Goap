@@ -16,6 +16,7 @@ public sealed class GWorld {
     // Queue of toilets
     private static Queue<GameObject> toilets;
 
+    private static Queue<GameObject> puddles;
     static GWorld() {
 
         // Create our world
@@ -28,9 +29,14 @@ public sealed class GWorld {
         offices = new Queue<GameObject>();
         // Create toilets array
         toilets = new Queue<GameObject>();
+
+
+        puddles = new Queue<GameObject>();
         // Find all GameObjects that are tagged "Cubicle"
+        
         GameObject[] cubes = GameObject.FindGameObjectsWithTag("Cubicle");
         // Then add them to the cubicles Queue
+
         foreach (GameObject c in cubes) {
 
             cubicles.Enqueue(c);
@@ -47,6 +53,7 @@ public sealed class GWorld {
         {
             toilets.Enqueue(toil);
         }
+
         // Inform the state
         if (cubes.Length > 0) {
             world.ModifyState("FreeCubicle", cubes.Length);
@@ -55,13 +62,14 @@ public sealed class GWorld {
         // Inform the state
         if (officesGameObjects.Length > 0)
         {
-            world.ModifyState("FreeOffice", cubes.Length);
+            world.ModifyState("FreeOffice", officesGameObjects.Length);
         }
 
         if (toiletsGameObjects.Length > 0)
         {
-            world.ModifyState("FreeToilet", cubes.Length);
+            world.ModifyState("FreeToilet", toiletsGameObjects.Length);
         }
+
         // Set the time scale in Unity
         Time.timeScale = 5.0f;
     }
@@ -125,6 +133,17 @@ public sealed class GWorld {
     {
         if (toilets.Count == 0) return null;
         return toilets.Dequeue();
+    }
+
+    public void AddPuddle(GameObject pud)
+    {
+        puddles.Enqueue(pud);
+    }
+
+    public GameObject RemovePuddle()
+    {
+        if (puddles.Count == 0) return null;
+        return puddles.Dequeue();
     }
 
     public static GWorld Instance {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UpdateWorld : MonoBehaviour
 {
     public Text states;
-
+    
     void LateUpdate()
     {
         Dictionary<string,int> worldStates = 

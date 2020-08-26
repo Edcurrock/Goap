@@ -9,7 +9,7 @@ public class Research : GAction
         target = GWorld.Instance.RemoveOffice();
         if(target == null)
             return false;
-        inventory.AddItem(target);
+        // inventory.AddItem(target);
         GWorld.Instance.GetWorld().ModifyState("FreeOffice", -1);
         return true;
     }
@@ -17,7 +17,7 @@ public class Research : GAction
     public override bool PostPerform()
     {
         GWorld.Instance.AddOffice(target);
-        inventory.RemoveItem(target);
+        // inventory.RemoveItem(target);
         GWorld.Instance.GetWorld().ModifyState("FreeOffice", 1);
         return true;
     }
