@@ -1482,9 +1482,9 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: Lounge
-  duration: 5
+  duration: 20
   preConditions:
-  - key: Treated
+  - key: exhausted
     value: 1
   afterEffects:
   - key: relaxing

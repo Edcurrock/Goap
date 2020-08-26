@@ -11,6 +11,7 @@ public class GoRelax : GAction
      
     public override bool PostPerform()
     {
+        beliefs.RemoveState("exhausted");
         return true;
     }
 

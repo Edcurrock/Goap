@@ -1086,10 +1086,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2804906853440194078}
-  - component: {fileID: 6921022516457618047}
-  - component: {fileID: 6921022516457618046}
-  - component: {fileID: 6921022516457618017}
-  - component: {fileID: 6921022516457618016}
   - component: {fileID: 6921022516457618019}
   - component: {fileID: 6921022516457618018}
   m_Layer: 0
@@ -1114,93 +1110,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6921022516457618047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5603220090648169989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73d60df1a2d7df34eb75f15667f2d5f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: 2
-  cost: 1
-  target: {fileID: 0}
-  targetTag: 
-  duration: 0
-  preConditions:
-  - key: onTwo
-    value: 0
-  afterEffects:
-  - key: onThree
-    value: 0
-  agent: {fileID: 0}
-  running: 0
---- !u!114 &6921022516457618046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5603220090648169989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08cacce2ddc0e8a42b11dcaf135ee3b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: 1
-  cost: 1
-  target: {fileID: 0}
-  targetTag: Lounge
-  duration: 0
-  preConditions: []
-  afterEffects:
-  - key: onTwo
-    value: 0
-  agent: {fileID: 0}
-  running: 0
---- !u!114 &6921022516457618017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5603220090648169989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb0db44eb2d3114f8a9ccb24740eff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: []
-  currentAction: {fileID: 0}
---- !u!114 &6921022516457618016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5603220090648169989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fcf872c05d85d44c85d462de5076047, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: Action
-  cost: 1
-  target: {fileID: 0}
-  targetTag: 
-  duration: 0
-  preConditions:
-  - key: onThree
-    value: 0
-  afterEffects:
-  - key: repeat
-    value: 0
-  agent: {fileID: 0}
-  running: 0
 --- !u!195 &6921022516457618019
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1235,7 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f4d1ffef907224b9ac13fc858eae2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisAgent: {fileID: 6921022516457618017}
+  thisAgent: {fileID: 0}
 --- !u!1 &5883107943820849456
 GameObject:
   m_ObjectHideFlags: 0

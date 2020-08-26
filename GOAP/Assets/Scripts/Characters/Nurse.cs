@@ -10,19 +10,13 @@ public class Nurse : GAgent {
         goals.Add(s1, 3);
 
         SubGoal s2 = new SubGoal("relaxing", 1, false);
-        goals.Add(s2, 3);
+        goals.Add(s2, 2);
+
+        InvokeRepeating("GetTired",Random.Range(15,30),Random.Range(10,20));
     }
 
-    // private void Update() 
-    // {
-    //     if(!GWorld.Instance.GetWorld().GetStates().ContainsKey("Waiting"))
-    //     {
-    //         if(!GWorld.Instance.GetWorld().GetStates().ContainsKey("Relax"))
-    //             GWorld.Instance.GetWorld().ModifyState("Relax",0);
-    //     }
-    //     else if(GWorld.Instance.GetWorld().GetStates().ContainsKey("Relax"))
-    //     {
-    //         GWorld.Instance.GetWorld().ModifyState("Relax",-1);
-    //     }
-    // }
+    void GetTired()
+    {
+        beliefs.ModifyState("exhausted", 0);
+    }
 }
