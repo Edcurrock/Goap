@@ -37,6 +37,8 @@ public class GAgent : MonoBehaviour {
     // Our subgoal
     SubGoal currentGoal;
 
+    Vector3 destination = Vector3.zero;
+
     // Start is called before the first frame update
     public void Start() {
 
@@ -63,9 +65,9 @@ public class GAgent : MonoBehaviour {
         if (currentAction != null && currentAction.running) {
 
             // Find the distance to the target
-            float distanceToTarget = Vector3.Distance(currentAction.target.transform.position, this.transform.position);
+            float distanceToTarget = Vector3.Distance(destination, this.transform.position);
             // Check the agent has a goal and has reached that goal
-            if (currentAction.agent.hasPath && distanceToTarget < 2.0f) { // currentAction.agent.remainingDistance < 1.0f) 
+            if (distanceToTarget < 2.0f) { // currentAction.agent.remainingDistance < 1.0f) 
                 ///
                 currentAction.agent.isStopped = true;
                 ///
@@ -136,7 +138,11 @@ public class GAgent : MonoBehaviour {
                     currentAction.running = true;
                     currentAction.agent.isStopped = false;
                     // Pass Unities AI the destination for the agent
-                    currentAction.agent.SetDestination(currentAction.target.transform.position);
+                    destination = currentAction.target.transform.position;
+                    Transform isDestExist = currentAction.target.transform.Find("Destination");
+                    if(isDestExist)
+                        destination = isDestExist.position;
+                    currentAction.agent.SetDestination(destination);
                 }
             } else {
 

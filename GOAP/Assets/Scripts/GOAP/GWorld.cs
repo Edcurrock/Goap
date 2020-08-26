@@ -13,6 +13,8 @@ public sealed class GWorld {
     private static Queue<GameObject> cubicles;
     // Queue of offices
     private static Queue<GameObject> offices;
+    // Queue of toilets
+    private static Queue<GameObject> toilets;
 
     static GWorld() {
 
@@ -24,6 +26,8 @@ public sealed class GWorld {
         cubicles = new Queue<GameObject>();
         // Create offices array
         offices = new Queue<GameObject>();
+        // Create toilets array
+        toilets = new Queue<GameObject>();
         // Find all GameObjects that are tagged "Cubicle"
         GameObject[] cubes = GameObject.FindGameObjectsWithTag("Cubicle");
         // Then add them to the cubicles Queue
@@ -38,7 +42,11 @@ public sealed class GWorld {
             offices.Enqueue(off);
         }
 
-
+        GameObject[] toiletsGameObjects = GameObject.FindGameObjectsWithTag("Toilet");
+        foreach (GameObject toil in toiletsGameObjects)
+        {
+            toilets.Enqueue(toil);
+        }
         // Inform the state
         if (cubes.Length > 0) {
             world.ModifyState("FreeCubicle", cubes.Length);
@@ -48,6 +56,11 @@ public sealed class GWorld {
         if (officesGameObjects.Length > 0)
         {
             world.ModifyState("FreeOffice", cubes.Length);
+        }
+
+        if (toiletsGameObjects.Length > 0)
+        {
+            world.ModifyState("FreeToilet", cubes.Length);
         }
         // Set the time scale in Unity
         Time.timeScale = 5.0f;
@@ -99,6 +112,19 @@ public sealed class GWorld {
         // Check we have something to remove
         if (offices.Count == 0) return null;
         return offices.Dequeue();
+    }
+
+    // Toilets
+    public void AddToilet(GameObject toil)
+    {
+        // Add the patient to the patients Queue
+        toilets.Enqueue(toil);
+    }
+
+    public GameObject RemoveToilet()
+    {
+        if (toilets.Count == 0) return null;
+        return toilets.Dequeue();
     }
 
     public static GWorld Instance {
