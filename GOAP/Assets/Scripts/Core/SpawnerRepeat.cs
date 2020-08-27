@@ -8,10 +8,10 @@ public class SpawnerRepeat : MonoBehaviour
     int spawnCount = 5;
 
     [SerializeField]
-    GameObject patientPrefab;
+    GameObject patientPrefab = null;
 
     [SerializeField]
-    Transform spawnPos;
+    Transform spawnPos = null;
 
     [SerializeField]
     float timeToSpawnAgain = 15f;

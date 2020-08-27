@@ -8,10 +8,10 @@ public class Spawner : MonoBehaviour
     int spawnCount = 5;
 
     [SerializeField]
-    GameObject patientPrefab;
+    GameObject patientPrefab = null;
 
     [SerializeField]
-    Transform spawnPos;
+    Transform spawnPos = null;
 
     int currentCount = 0;
 

@@ -6,7 +6,7 @@ public class Cleaning : GAction
 {
     public override bool PrePerform()
     {
-        target = GWorld.Instance.RemovePuddle();
+        target = GWorld.Instance.GetQueue("puddles").RemoveResource();
         if(target == null)
             return false;
         return true;

@@ -6,7 +6,7 @@ public class Research : GAction
 {
     public override bool PrePerform()
     {
-        target = GWorld.Instance.RemoveOffice();
+        target = GWorld.Instance.GetQueue("offices").RemoveResource();
         if(target == null)
             return false;
         // inventory.AddItem(target);
@@ -16,8 +16,7 @@ public class Research : GAction
      
     public override bool PostPerform()
     {
-        GWorld.Instance.AddOffice(target);
-        // inventory.RemoveItem(target);
+        GWorld.Instance.GetQueue("offices").AddResource(target);
         GWorld.Instance.GetWorld().ModifyState("FreeOffice", 1);
         return true;
     }
