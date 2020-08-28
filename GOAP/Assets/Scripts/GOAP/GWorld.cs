@@ -73,7 +73,7 @@ public sealed class GWorld {
         resources.Add("offices", offices);
         toilets = new ResourceQueue("Toilet", "FreeToilet", world);
         resources.Add("toilets", toilets);
-        puddles = new ResourceQueue("", "", world);
+        puddles = new ResourceQueue("Puddle", "Puddles", world);
         resources.Add("puddles", puddles);
         
         // Set the time scale in Unity

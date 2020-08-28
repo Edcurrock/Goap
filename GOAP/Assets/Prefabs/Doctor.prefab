@@ -1088,6 +1088,11 @@ GameObject:
   - component: {fileID: 2804906853440194078}
   - component: {fileID: 6921022516457618019}
   - component: {fileID: 6921022516457618018}
+  - component: {fileID: 359000405}
+  - component: {fileID: 359000407}
+  - component: {fileID: 359000408}
+  - component: {fileID: 359000409}
+  - component: {fileID: 359000411}
   m_Layer: 0
   m_Name: Doctor
   m_TagString: Untagged
@@ -1144,7 +1149,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f4d1ffef907224b9ac13fc858eae2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisAgent: {fileID: 0}
+  thisAgent: {fileID: 359000408}
+--- !u!114 &359000405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603220090648169989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01eaeee3a2ac596438c6c1e829a9e404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: needToilet
+  stateStrength: 10
+  stateDecayRate: 2
+  resPrefab: {fileID: 3519531357325940555, guid: 161f4257b562d1647908a2c06380e5d5, type: 3}
+  queueName: puddles
+  worldState: Puddles
+  action: {fileID: 359000411}
+--- !u!114 &359000407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603220090648169989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3d49ca0d275a24c86b003298664e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: Lounge
+  duration: 20
+  preConditions:
+  - key: exhausted
+    value: 1
+  afterEffects:
+  - key: relaxing
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &359000408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603220090648169989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f351fdbac5ddea4ba625257882f9bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: []
+  currentAction: {fileID: 0}
+--- !u!114 &359000409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603220090648169989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee243d4f43507db49bc5b6ca1d4cd82c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 5
+  preConditions:
+  - key: FreeOffice
+    value: 0
+  afterEffects:
+  - key: research
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &359000411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603220090648169989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35c7a5c6c5e75f49bc34ec4369076ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Go Toilet
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 5
+  preConditions:
+  - key: FreeToilet
+    value: 0
+  - key: needToilet
+    value: 0
+  afterEffects:
+  - key: toilet
+    value: 0
+  agent: {fileID: 0}
+  running: 0
 --- !u!1 &5883107943820849456
 GameObject:
   m_ObjectHideFlags: 0

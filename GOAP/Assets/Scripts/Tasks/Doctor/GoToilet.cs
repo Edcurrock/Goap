@@ -20,7 +20,6 @@ public class GoToilet : GAction
         GWorld.Instance.GetQueue("toilets").AddResource(target);
         //inventory.RemoveItem(target);
         GWorld.Instance.GetWorld().ModifyState("FreeToilet", 1);
-        InitPuddle();
         return true;
     }
 
