@@ -7,13 +7,13 @@ public class Doctor : GAgent {
         // Call base Start method
         base.Start();
         SubGoal s1 = new SubGoal("relaxing", 1, false);
-        goals.Add(s1, 3);
+        goals.Add(s1, 2);
         
         SubGoal s2 = new SubGoal("research", 1, false);
         goals.Add(s2, 1);
 
         SubGoal s3 = new SubGoal("toilet", 1, false);
-        goals.Add(s3, 4);
+        goals.Add(s3, 3);
 
         InvokeRepeating("GetTired", Random.Range(15, 30), Random.Range(10, 20));
         InvokeRepeating("NeedToilet", Random.Range(50 , 60), Random.Range(50, 60));
