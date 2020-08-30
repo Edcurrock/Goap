@@ -1163,12 +1163,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: needToilet
-  stateStrength: 10
-  stateDecayRate: 2
   resPrefab: {fileID: 3519531357325940555, guid: 161f4257b562d1647908a2c06380e5d5, type: 3}
   queueName: puddles
   worldState: Puddles
   action: {fileID: 359000411}
+  timeToInstant: 10
 --- !u!114 &359000407
 MonoBehaviour:
   m_ObjectHideFlags: 0

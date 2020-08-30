@@ -9,7 +9,6 @@ public class GoToilet : GAction
         target = GWorld.Instance.GetQueue("toilets").RemoveResource();
         if(target == null)
             return false;
-        print(target);
         //inventory.AddItem(target);
         GWorld.Instance.GetWorld().ModifyState("FreeToilet", -1);
         return true;

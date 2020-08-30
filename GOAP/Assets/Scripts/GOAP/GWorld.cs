@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -40,6 +41,11 @@ public class ResourceQueue
         }
         return que.Dequeue();
     }
+
+    public void RemoveForDragging(GameObject item)
+    {
+        que = new Queue<GameObject>(que.Where(x => x != item));
+    }
 }
 
 public sealed class GWorld {
@@ -73,7 +79,7 @@ public sealed class GWorld {
         resources.Add("offices", offices);
         toilets = new ResourceQueue("Toilet", "FreeToilet", world);
         resources.Add("toilets", toilets);
-        puddles = new ResourceQueue("Puddle", "Puddles", world);
+        puddles = new ResourceQueue("", "", world);
         resources.Add("puddles", puddles);
         
         // Set the time scale in Unity

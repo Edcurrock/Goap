@@ -1784,8 +1784,10 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: Lounge
-  duration: 0
-  preConditions: []
+  duration: 7
+  preConditions:
+  - key: exhausted
+    value: 0
   afterEffects:
   - key: relax
     value: 0
