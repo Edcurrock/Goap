@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 public class Mover : MonoBehaviour
 {
     bool isMovable = false;
@@ -12,6 +13,9 @@ public class Mover : MonoBehaviour
 
     [SerializeField]
     AddResource stateRes = null;
+
+    [SerializeField]
+    NavMeshSurface surface;
 
     string targetTag = "";
   
@@ -40,7 +44,9 @@ public class Mover : MonoBehaviour
             {
                 GWorld.Instance.GetQueue("toilets").AddResource(target);
                 GWorld.Instance.GetWorld().ModifyState("FreeToilet", 1);
+
             }
+            surface.BuildNavMesh();
             target = null;
         }
         if(isMovable)
