@@ -30,7 +30,7 @@ public class Mover : MonoBehaviour
             {
                 isMovable = true;
                 target = hit.collider.gameObject;
-                if(GWorld.Instance.GetQueue("toilets").que.Contains(target))
+                if(GWorld.Instance.GetQueue("toilets").que.Contains(target) && target.tag == "Toilet")
                 {
                     GWorld.Instance.GetQueue("toilets").RemoveForDragging(target);
                     GWorld.Instance.GetWorld().ModifyState("FreeToilet", -1);
@@ -40,7 +40,7 @@ public class Mover : MonoBehaviour
         else if(Input.GetMouseButtonDown(0) && isMovable)
         {
             isMovable = false;
-            if(!GWorld.Instance.GetQueue("toilets").que.Contains(target))
+            if(!GWorld.Instance.GetQueue("toilets").que.Contains(target) && target.tag == "Toilet")
             {
                 GWorld.Instance.GetQueue("toilets").AddResource(target);
                 GWorld.Instance.GetWorld().ModifyState("FreeToilet", 1);
@@ -54,6 +54,10 @@ public class Mover : MonoBehaviour
             RaycastHit hit;
             Physics.Raycast(GetMouseRay(),out hit, Mathf.Infinity, 1 << 8);
             target.transform.position = hit.point;
+            if(Input.GetMouseButtonDown(1))
+            {
+                target.transform.RotateAround(target.transform.position,Vector3.down,90);
+            }
         }
         
     }
