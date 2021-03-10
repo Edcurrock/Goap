@@ -1338,9 +1338,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2084326960257471643}
   - component: {fileID: 2084326960257471642}
-  - component: {fileID: 2084326960257471640}
   - component: {fileID: 2084326960257471641}
   - component: {fileID: 2084326960257471620}
+  - component: {fileID: 2084326960257471640}
   - component: {fileID: 724605329}
   - component: {fileID: 2121968124}
   - component: {fileID: 444705504}
@@ -1389,33 +1389,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2084326960257471640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084326960257471647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e21f2ee17a389c54ab7e02230ad161ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionName: Get Patient
-  cost: 1
-  target: {fileID: 0}
-  targetTag: 
-  duration: 0
-  preConditions:
-  - key: FreeCubicle
-    value: 1
-  - key: Waiting
-    value: 1
-  afterEffects:
-  - key: patientPicked
-    value: 1
-  agent: {fileID: 0}
-  running: 0
 --- !u!114 &2084326960257471641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,6 +1416,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisAgent: {fileID: 2084326960257471641}
+--- !u!114 &2084326960257471640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084326960257471647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21f2ee17a389c54ab7e02230ad161ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Get Patient
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: FreeCubicle
+    value: 1
+  - key: Waiting
+    value: 1
+  afterEffects:
+  - key: patientPicked
+    value: 1
+  agent: {fileID: 0}
+  running: 0
 --- !u!114 &724605329
 MonoBehaviour:
   m_ObjectHideFlags: 0

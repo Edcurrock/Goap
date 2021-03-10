@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UpdateWorld : MonoBehaviour
 {
     public Text states;
-    
+
     void LateUpdate()
     {
         Dictionary<string,int> worldStates = 
@@ -17,4 +17,5 @@ public class UpdateWorld : MonoBehaviour
             states.text += st.Key + " | " + st.Value + "\n";
         }
     }
+
 }
