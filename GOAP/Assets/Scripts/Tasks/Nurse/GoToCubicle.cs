@@ -11,11 +11,8 @@ public class GoToCubicle : GAction
     {
         difficulty = GameObject.FindGameObjectWithTag("Difficulty").GetComponent<DifficultyManager>();
         treatChance = difficulty.TreatChance;
-    }
-
-    private void Update() 
-    {
-        treatChance = difficulty.TreatChance;
+        Menu menu = GameObject.FindGameObjectWithTag("Menu").GetComponent<Menu>();
+        menu.difficultyAct += DifficultyChange;
     }
     
     public override bool PrePerform()
@@ -30,7 +27,10 @@ public class GoToCubicle : GAction
     {
         var chance = Random.RandomRange(0f, 1f) <= treatChance ? true : false;
         if(chance)
+        {
             GWorld.Instance.GetWorld().ModifyState("Success", 1);
+            difficulty.CurrentScore ++;
+        }
         else
             GWorld.Instance.GetWorld().ModifyState("Failed", 1);
 
@@ -39,6 +39,11 @@ public class GoToCubicle : GAction
         inventory.RemoveItem(target);
         GWorld.Instance.GetWorld().ModifyState("FreeCubicle",1);
         return true;
+    }
+
+    public void DifficultyChange()
+    {
+        treatChance = difficulty.TreatChance;
     }
 
 }

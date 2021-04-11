@@ -15,6 +15,7 @@ TagManager:
   - Toilet
   - Puddle
   - Difficulty
+  - Menu
   layers:
   - Default
   - TransparentFX
