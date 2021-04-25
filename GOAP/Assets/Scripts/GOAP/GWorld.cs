@@ -65,22 +65,34 @@ public sealed class GWorld {
 
     private static ResourceQueue puddles;
 
+    private static ResourceQueue tables;
+
+    private static ResourceQueue clients;
+
     private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
 
     static GWorld() 
     {
         // Create our world
         world = new WorldStates();
-        patients = new ResourceQueue("","",world); 
-        resources.Add("patients",patients);
-        cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
-        resources.Add("cubicles", cubicles);
-        offices = new ResourceQueue("Office", "FreeOffice", world);
-        resources.Add("offices", offices);
-        toilets = new ResourceQueue("Toilet", "FreeToilet", world);
-        resources.Add("toilets", toilets);
+        //patients = new ResourceQueue("","",world);
+        // resources.Add("patients",patients);
+        // cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
+        // resources.Add("cubicles", cubicles);
+        // offices = new ResourceQueue("Office", "FreeOffice", world);
+        // resources.Add("offices", offices);
+        // toilets = new ResourceQueue("Toilet", "FreeToilet", world);
+        // resources.Add("toilets", toilets);
+
+        clients = new ResourceQueue("", "", world);
+        resources.Add("clients",clients);
+
+        //cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
         puddles = new ResourceQueue("", "", world);
         resources.Add("puddles", puddles);
+        
+        tables = new ResourceQueue("Table", "FreeTable", world);
+        resources.Add("tables", tables);
     }
 
     public ResourceQueue GetQueue(string type)

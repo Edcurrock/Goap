@@ -28,6 +28,8 @@ public class GAgent : MonoBehaviour {
     public GInventory inventory  = new GInventory();
     public WorldStates beliefs = new WorldStates();
 
+    public GameObject extTarget;
+
     // Access the planner
     GPlanner planner;
     // Action Queue
