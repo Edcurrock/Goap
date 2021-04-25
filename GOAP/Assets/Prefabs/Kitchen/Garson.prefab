@@ -397,6 +397,9 @@ GameObject:
   - component: {fileID: 6148821720673819850}
   - component: {fileID: 6148821720673819852}
   - component: {fileID: 6148821720673819853}
+  - component: {fileID: 2062458013}
+  - component: {fileID: 2062458014}
+  - component: {fileID: 2062458015}
   m_Layer: 0
   m_Name: Garson
   m_TagString: Untagged
@@ -475,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions: []
+  extTarget: {fileID: 0}
   currentAction: {fileID: 0}
 --- !u!114 &6148821720673819852
 MonoBehaviour:
@@ -492,7 +496,7 @@ MonoBehaviour:
   cost: 1
   target: {fileID: 0}
   targetTag: 
-  duration: 0
+  duration: 2
   preConditions:
   - key: Serve
     value: 0
@@ -521,6 +525,81 @@ MonoBehaviour:
   preConditions: []
   afterEffects:
   - key: waiting
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &2062458013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65414052877131101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95398992dc4f78943b3d43e63e0c48f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: Kitchen
+  duration: 5
+  preConditions:
+  - key: goToClient
+    value: 0
+  afterEffects:
+  - key: hasFood
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &2062458014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65414052877131101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c85a80d65bc0144820a6e8fcb219ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: 
+  duration: 0
+  preConditions:
+  - key: hasFood
+    value: 0
+  afterEffects:
+  - key: servedClient
+    value: 0
+  agent: {fileID: 0}
+  running: 0
+--- !u!114 &2062458015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65414052877131101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2625faf416a02494b903cd77ee44df88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  target: {fileID: 0}
+  targetTag: Toilet
+  duration: 5
+  preConditions:
+  - key: needToilet
+    value: 0
+  afterEffects:
+  - key: goRest
     value: 0
   agent: {fileID: 0}
   running: 0
