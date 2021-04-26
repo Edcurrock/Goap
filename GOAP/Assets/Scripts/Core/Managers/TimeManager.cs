@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour
 
 
     public delegate void GameOverAction();
-    public event GameOverAction gameOvetTime;
+    public event GameOverAction gameOverAction;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class TimeManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
-        gameOvetTime.Invoke();
+        gameOverAction.Invoke();
         
     }
 

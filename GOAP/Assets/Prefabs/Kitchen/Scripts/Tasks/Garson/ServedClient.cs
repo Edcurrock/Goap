@@ -17,7 +17,7 @@ public class ServedClient : GAction
     public override bool PostPerform()
     {
         GWorld.Instance.GetWorld().ModifyState("Served", 1);
-        target.GetComponent<GAgent>().beliefs.ModifyState("served", 1);
+        target.GetComponent<GAgent>().beliefs.ModifyState("servedClient", 1);
 
         GetComponent<Garson>().extTarget = null;
         return true;

@@ -1951,7 +1951,7 @@ MonoBehaviour:
   targetTag: Home
   duration: 0
   preConditions:
-  - key: served
+  - key: servedClient
     value: 0
   afterEffects:
   - key: goOut

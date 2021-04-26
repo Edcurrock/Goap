@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
     public delegate void DifficultyAction();
     public event DifficultyAction difficultyAct;
     [SerializeField] GameObject menuObject;
+    
     bool isActive = true;
     float timeScale;
     // Start is called before the first frame update

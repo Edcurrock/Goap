@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class UpdateWorld : MonoBehaviour
@@ -17,5 +18,4 @@ public class UpdateWorld : MonoBehaviour
             states.text += st.Key + " | " + st.Value + "\n";
         }
     }
-
 }

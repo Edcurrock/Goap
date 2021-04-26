@@ -22,6 +22,7 @@ TagManager:
   - Register
   - Garson Waiting
   - Kitchen
+  - Spawn
   layers:
   - Default
   - TransparentFX

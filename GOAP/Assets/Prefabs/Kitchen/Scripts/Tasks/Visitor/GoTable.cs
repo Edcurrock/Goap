@@ -7,6 +7,7 @@ public class GoTable : GAction
     public override bool PrePerform()
     {
         target = GWorld.Instance.GetQueue("tables").RemoveResource();
+        GetComponent<Visitor>().extTarget = target;
         if (target == null)
             return false;
 

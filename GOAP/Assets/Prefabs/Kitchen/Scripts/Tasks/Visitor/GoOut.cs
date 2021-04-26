@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class GoOut : GAction
 {
+    public delegate void PuddleAction();
+    public event PuddleAction puddleAction;
+
     public override bool PrePerform()
     {
         GWorld.Instance.GetWorld().ModifyState("FreeTable", 1);
+        GWorld.Instance.GetQueue("tables").AddResource(GetComponent<Visitor>().extTarget);
+        GetComponent<Visitor>().extTarget = null;
         beliefs.ModifyState("served", -1);
+        InitPuddle();
         return true;
     }
 
@@ -17,4 +23,9 @@ public class GoOut : GAction
         return true;
     }
 
+    void InitPuddle()
+    {
+        var puddle = GameObject.FindWithTag("Spawn").GetComponent<Init>();
+        puddle.InitPuddle(transform.position);
+    }
 }
