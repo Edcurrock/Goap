@@ -17,12 +17,18 @@ public class DifficultyManager : MonoBehaviour
 
     [SerializeField] Slider sliderPuddle;
 
+    [SerializeField] Slider sliderRest;
+
     [SerializeField] int winScore = 8;
     [SerializeField] Text gameStatusText;
 
     [SerializeField] TimeManager timeManager;
 
     [SerializeField] Init initManager;
+
+
+    ////Difficulty Data////
+    [SerializeField] DifficultyData data;
 
     //////////Character Inpit Field////////
     ///GARSON///
@@ -59,7 +65,12 @@ public class DifficultyManager : MonoBehaviour
 
     public float PuddleChance
     {
-        get { return puddlesChance; }
+        get { return data.puddlesChance; }
+    }
+
+    public float RestChance
+    {
+        get { return data.restChance; }
     }
 
     public void ChangeChance()
@@ -69,13 +80,18 @@ public class DifficultyManager : MonoBehaviour
 
     public void ChangePuddleChance()
     {
-        puddlesChance = sliderPuddle.value;
+        data.puddlesChance = sliderPuddle.value;
+    }
+
+    public void ChangeRestChance()
+    {
+        data.restChance = sliderRest.value;
     }
 
     public void GameStatus()
     {
         gameStatusText.gameObject.SetActive(true);
-        if(CurrentScore >= winScore)
+        if(CurrentScore >= data.winScore)
             gameStatusText.text = "WIN";
         else
             gameStatusText.text = "FAILED";
@@ -86,7 +102,7 @@ public class DifficultyManager : MonoBehaviour
     {
         foreach (var item in garsons)
         {
-            item.GetComponent<NavMeshAgent>().speed = 1;
+            item.GetComponent<NavMeshAgent>().speed = data.speedDebuff;
         }
     }
 

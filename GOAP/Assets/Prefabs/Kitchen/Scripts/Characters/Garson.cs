@@ -2,11 +2,14 @@
 
 public class Garson : GAgent
 {
+    [SerializeField] float time  = 5f;
+    DifficultyManager manager;
     new void Start()
     {
-        InvokeRepeating("NeedToilet", 20, 35);
-        // Call base Start method
         base.Start();
+        manager = GameObject.FindGameObjectWithTag("Difficulty").GetComponent<DifficultyManager>();
+        InvokeRepeating("NeedToilet", time, time);
+
         SubGoal s1 = new SubGoal("waiting", 1, false);
         goals.Add(s1, 1);
 
@@ -22,6 +25,10 @@ public class Garson : GAgent
 
     void NeedToilet()
     {
-        beliefs.ModifyState("needToilet", 0);
+        var chance = Random.Range(0f,1f);
+        if(chance <= manager.RestChance)
+        { 
+            beliefs.ModifyState("needToilet", 0);
+        }
     }
 }
