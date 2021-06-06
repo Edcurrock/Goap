@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e3d3c787bd5add419e01b452d008c5d, type: 3}
   m_Name: Difficulty Data
   m_EditorClassIdentifier: 
-  restChance: 0.5
+  restChance: 0.25453392
   speedDebuff: 1
-  puddlesChance: 0.25
-  winScore: 8
+  puddlesChance: 0.2704423
+  winScore: 10

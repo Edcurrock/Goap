@@ -19,7 +19,7 @@ public class DifficultyManager : MonoBehaviour
 
     [SerializeField] Slider sliderRest;
 
-    [SerializeField] int winScore = 8;
+    //[SerializeField] int winScore = 8;
     [SerializeField] Text gameStatusText;
 
     [SerializeField] TimeManager timeManager;
@@ -34,6 +34,7 @@ public class DifficultyManager : MonoBehaviour
     ///GARSON///
     [SerializeField] InputField prepareFoodField;
     [SerializeField] InputField takeOrderField;
+    [SerializeField] InputField restField;
     ///Visitor//
     [SerializeField] InputField MakeOrderField;
     [SerializeField] InputField RegisterField;
@@ -92,10 +93,13 @@ public class DifficultyManager : MonoBehaviour
     {
         gameStatusText.gameObject.SetActive(true);
         if(CurrentScore >= data.winScore)
+        {
             gameStatusText.text = "WIN";
+        }
         else
+        {
             gameStatusText.text = "FAILED";
-
+        }
     }
 
     public void ChangeGarsonSpeed()
@@ -139,6 +143,19 @@ public class DifficultyManager : MonoBehaviour
             if(float.TryParse(text,NumberStyles.Float,CultureInfo.InvariantCulture.NumberFormat, out result))
             {
                 item.GetComponent<GoToClient>().duration = result;
+            }
+        }
+    }
+
+    public void ChangeRestTime()
+    {
+        foreach (var item in garsons)
+        {
+            var text = restField.text;
+            float result;
+            if (float.TryParse(text, NumberStyles.Float, CultureInfo.InvariantCulture.NumberFormat, out result))
+            {
+                item.GetComponent<GoRest>().duration = result;
             }
         }
     }
