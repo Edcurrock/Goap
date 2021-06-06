@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -40,6 +41,11 @@ public class ResourceQueue
         }
         return que.Dequeue();
     }
+
+    public void RemoveForDragging(GameObject item)
+    {
+        que = new Queue<GameObject>(que.Where(x => x != item));
+    }
 }
 
 public sealed class GWorld {
@@ -59,25 +65,34 @@ public sealed class GWorld {
 
     private static ResourceQueue puddles;
 
+    private static ResourceQueue tables;
+
+    private static ResourceQueue clients;
+
     private static Dictionary<string, ResourceQueue> resources = new Dictionary<string, ResourceQueue>();
 
     static GWorld() 
     {
         // Create our world
         world = new WorldStates();
-        patients = new ResourceQueue("","",world); 
-        resources.Add("patients",patients);
-        cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
-        resources.Add("cubicles", cubicles);
-        offices = new ResourceQueue("Office", "FreeOffice", world);
-        resources.Add("offices", offices);
-        toilets = new ResourceQueue("Toilet", "FreeToilet", world);
-        resources.Add("toilets", toilets);
-        puddles = new ResourceQueue("Puddle", "Puddles", world);
+        //patients = new ResourceQueue("","",world);
+        // resources.Add("patients",patients);
+        // cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
+        // resources.Add("cubicles", cubicles);
+        // offices = new ResourceQueue("Office", "FreeOffice", world);
+        // resources.Add("offices", offices);
+        // toilets = new ResourceQueue("Toilet", "FreeToilet", world);
+        // resources.Add("toilets", toilets);
+
+        clients = new ResourceQueue("", "", world);
+        resources.Add("clients",clients);
+
+        //cubicles = new ResourceQueue("Cubicle", "FreeCubicle", world);
+        puddles = new ResourceQueue("", "", world);
         resources.Add("puddles", puddles);
         
-        // Set the time scale in Unity
-        Time.timeScale = 5.0f;
+        tables = new ResourceQueue("Table", "FreeTable", world);
+        resources.Add("tables", tables);
     }
 
     public ResourceQueue GetQueue(string type)

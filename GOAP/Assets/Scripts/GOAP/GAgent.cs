@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class SubGoal {
 
@@ -27,6 +28,8 @@ public class GAgent : MonoBehaviour {
     
     public GInventory inventory  = new GInventory();
     public WorldStates beliefs = new WorldStates();
+
+    public GameObject extTarget;
 
     // Access the planner
     GPlanner planner;

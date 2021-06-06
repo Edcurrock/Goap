@@ -6,8 +6,6 @@ public class GStateMonitor : MonoBehaviour
 {
 
     public string state;
-    public float stateStrength;
-    public float stateDecayRate;
     public WorldStates beliefs;
     public GameObject resPrefab;
     public string queueName;
@@ -16,41 +14,54 @@ public class GStateMonitor : MonoBehaviour
 
 
     bool stateFound = false;
-    float initStrength;
+    bool isPlaced = false;
+    [SerializeField]
+    float timeToInstant = 5f;
 
     private void Awake() 
     {
         beliefs = GetComponent<GAgent>().beliefs;
-        initStrength = stateStrength;
+        //initStrength = stateStrength;
     }
 
     void LateUpdate()
     {
-        if(action.running)
-        {
-            stateFound = false;
-            stateStrength = initStrength;
-        }
 
-        if(!stateFound && beliefs.HasState(state))
+        if(action.running && beliefs.HasState(state))
         {
             stateFound = true;
+        }
+        else
+        {
+            isPlaced = false;
         }
 
         if(stateFound)
         {
-            stateStrength -= stateDecayRate * Time.deltaTime;
-            if(stateStrength <= 0)
+            bool isPuddleTime = Random.Range(1,50) == 1;
+            if(isPuddleTime)
             {
-                Vector3 loc = new Vector3(transform.position.x,
-                    resPrefab.transform.position.y,transform.transform.position.z);
-                GameObject clone = Instantiate(resPrefab,loc,resPrefab.transform.rotation);
+                // Vector3 loc = new Vector3(transform.position.x,
+                //     resPrefab.transform.position.y,transform.transform.position.z);
+                // GameObject clone = Instantiate(resPrefab,loc,resPrefab.transform.rotation);
+                if(!isPlaced)
+                {
+                    Invoke("InstantRes",timeToInstant);
+                    isPlaced = true;
+                }
                 stateFound = false;
-                stateStrength = initStrength;
-                beliefs.RemoveState(state);
-                GWorld.Instance.GetQueue(queueName).AddResource(clone);
-                GWorld.Instance.GetWorld().ModifyState(worldState,1);
+                
             }
         }
+    }
+
+    void InstantRes()
+    {
+        Vector3 loc = new Vector3(transform.position.x,
+                    resPrefab.transform.position.y, transform.transform.position.z);
+        GameObject clone = Instantiate(resPrefab, loc, resPrefab.transform.rotation);
+
+        GWorld.Instance.GetQueue(queueName).AddResource(clone);
+        GWorld.Instance.GetWorld().ModifyState(worldState, 1);
     }
 }
